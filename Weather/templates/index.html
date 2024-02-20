@@ -1,0 +1,89 @@
+<!-- index.html -->
+<!-- weatherinfo/templates/weatherinfo/index.html -->
+{% extends "layout.html" %}
+
+
+{% block body %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="card bg-danger text-white mb-3">
+        <div class="card-body">
+          <h1 class="card-title">Hava Durumu Uygulaması</h1>
+        </div>
+      </div>
+      <form action="." method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="sehir" class="form-label">Şehir</label>
+          {{ form.sehir }}
+        </div>
+        <button type="submit" class="btn btn-primary">Sorgula</button>
+      </form>
+      {% if weather_data %}
+      <div class="card mt-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ weather_data.city }}</h5>
+          <p class="card-text">{{ weather_data.temperature_celsius|floatformat:1 }} °C</p>
+        </div>
+      </div>
+      {% elif error_message %}
+      <div class="alert alert-danger mt-3" role="alert">
+        {{ error_message }}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+ {% comment %} <section id="section-2">
+    <!-- Section title -->
+    <h2 class="mb-4">Weather App</h2>
+    <p>Hava Durumu Bilgilerini Öğrenmek İstediğiniz Şehri Girin </p>
+    <!--Section: Demo-->
+            <section class="pb-4">
+        <div class="bg-white border rounded-5">
+ 
+    <section class="w-100 py-5 px-4">
+      <div class="row d-flex justify-content-center py-5">
+        <div class="col-md-8 col-lg-6 col-xl-5">
+
+          <h3 class="mb-4 pb-2 fw-normal">Hava Tahmini</h3>
+        
+        <form method="post">
+            <div class="input-group rounded mb-3">
+                <input type="search" class="form-control rounded" placeholder="City" aria-label="Search" aria-describedby="search-addon" name="city">
+                <a href="/weather" type="button">
+                 <span class="input-group-text border-0 fw-bold" id="search-addon">
+                Check!
+              </span>
+                </a>
+            </div>
+
+        </form>
+
+          <div class="card shadow-0 border">
+            <div class="card-body p-4">
+
+              <h4 class="mb-1 sfw-normal">{{data.name}}</h4>
+              <p class="mb-2">Current temperature: <strong>{{data.name.temp}}</strong></p>
+              <p>Feels like: <strong>{{ data.main.feels_like }}</strong></p>
+              <p>Max: <strong>6.11°C</strong>, Min: <strong>3.89°C</strong></p>
+
+              <div class="d-flex flex-row align-items-center">
+                <p class="mb-0 me-4">Scattered Clouds <strong></strong></p>
+                <i class="fas fa-cloud fa-3x" style="color: #eee;"></i>
+              </div>
+
+            </div>
+          </div>
+
+            </div>
+            </div>
+        </</section>>
+        </section>
+    </</section>> {% endcomment %}

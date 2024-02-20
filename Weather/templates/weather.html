@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  {% if data %}
+
+    <p>Sıcaklık: {{ celcius}}</p>
+
+    <!-- Diğer hava durumu verilerini burada görüntüleyebilirsiniz -->
+  {% endif %}
+{% endblock body %}
+
+
+
+
+          {% comment %} <div class="card shadow-0 border">
+            <div class="card-body p-4">
+
+              <h4 class="mb-1 sfw-normal">{{data.name}}</h4>
+              <p class="mb-2">Current temperature: <strong>{{data.name.temp}}</strong></p>
+              <p>Feels like: <strong>{{ data.main.feels_like }}</strong></p>
+              <p>Max: <strong>6.11°C</strong>, Min: <strong>3.89°C</strong></p>
+
+              <div class="d-flex flex-row align-items-center">
+                <p class="mb-0 me-4">Scattered Clouds <strong></strong></p>
+                <i class="fas fa-cloud fa-3x" style="color: #eee;"></i>
+              </div>
+
+            </div>
+          </div>
+
+        </div> {% endcomment %}
